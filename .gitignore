@@ -3,3 +3,5 @@
 /server/django/env/
 /server/telegram/env/
 .idea
+/server/telegram/.idea/
+/server/django/.idea/
