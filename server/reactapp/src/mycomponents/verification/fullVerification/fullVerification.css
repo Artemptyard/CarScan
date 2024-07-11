@@ -1,0 +1,14 @@
+.fullVerification{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 60%;
+    padding: 20px;
+}
