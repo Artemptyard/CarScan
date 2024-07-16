@@ -8,9 +8,12 @@ from abc import ABC, abstractmethod
 
 
 class CustomUserManager(BaseUserManager):
+    """"""
+
     def create_user(self, email, password=None, **extra_fields):
+        """Создание обычного пользователя"""
         if not email:
-            raise ValueError('The Email field must be set')
+            raise ValueError("The Email field must be set")
         email = self.normalize_email(email)
         user = self.model(email=email, **extra_fields)
         user.set_password(password)
@@ -18,13 +21,14 @@ class CustomUserManager(BaseUserManager):
         return user
 
     def create_superuser(self, email, password=None, **extra_fields):
-        extra_fields.setdefault('is_staff', True)
-        extra_fields.setdefault('is_superuser', True)
+        """Создание админа"""
+        extra_fields.setdefault("is_staff", True)
+        extra_fields.setdefault("is_superuser", True)
 
-        if extra_fields.get('is_staff') is not True:
-            raise ValueError('Superuser must have is_staff=True.')
-        if extra_fields.get('is_superuser') is not True:
-            raise ValueError('Superuser must have is_superuser=True.')
+        if extra_fields.get("is_staff") is not True:
+            raise ValueError("Superuser must have is_staff=True.")
+        if extra_fields.get("is_superuser") is not True:
+            raise ValueError("Superuser must have is_superuser=True.")
 
         return self.create_user(email, password, **extra_fields)
 
@@ -37,11 +41,11 @@ class UserTypes(models.TextChoices):
     SUPPOR: Техническая поддержка.
     ADMIN: Администрация.
     """
-    PREUSER = 'PRE', 'PreUser'
-    USER = 'US', 'User'
-    VIP = 'VIP', 'VIP'
-    SUPPORT = 'SUP', 'Support'
-    ADMIN = 'AD', 'Admin'
+    PREUSER = "PRE", "PreUser"
+    USER = "US", "User"
+    VIP = "VIP", "VIP"
+    SUPPORT = "SUP", "Support"
+    ADMIN = "AD", "Admin"
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -55,11 +59,11 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     objects = CustomUserManager()
 
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 
     class Meta:
-        db_table = 'users'
+        db_table = "users"
 
     def __str__(self):
         return self.email
@@ -81,10 +85,10 @@ class CarInfo(models.Model):
     def _get_ru_names(self) -> Dict[str, str]:
         """Получения русских названий свойств из описания"""
         translation: Dict[str, str] = {}
-        for line in self.__doc__.split('\n'):
-            if ':' in line:
-                en = line[:line.find(':')].strip()
-                ru = line[line.find(':') + 1: -1].strip()
+        for line in self.__doc__.split("\n"):
+            if ":" in line:
+                en = line[:line.find(":")].strip()
+                ru = line[line.find(":") + 1: -1].strip()
                 translation[en] = ru
         return translation
 
@@ -92,10 +96,10 @@ class CarInfo(models.Model):
     def _get_en_names(self) -> Dict[str, str]:
         """Получения русских названий свойств из описания"""
         translation: Dict[str, str] = {}
-        for line in self.__doc__.split('\n'):
-            if ':' in line:
-                en = line[:line.find(':')].strip()
-                ru = line[line.find(':') + 1: -1].strip()
+        for line in self.__doc__.split("\n"):
+            if ":" in line:
+                en = line[:line.find(":")].strip()
+                ru = line[line.find(":") + 1: -1].strip()
                 translation[ru] = en
         return translation
 
@@ -157,7 +161,7 @@ class Car(CarInfo):
     accidents: Информация о ДТП.
     fines: Штрафы.
     """
-    # license_alphabet: ClassVar[List[str]] = ['А', 'В', 'Е', 'К', 'М', 'Н', 'О', 'Р', 'С', 'Т', 'У', 'Х']
+    # license_alphabet: ClassVar[List[str]] = ["А", "В", "Е", "К", "М", "Н", "О", "Р", "С", "Т", "У", "Х"]
     vin_number = models.CharField(max_length=17, default=DEFAULT, unique=True)
     body_number = models.CharField(max_length=20, default=DEFAULT)
     chassis_number = models.CharField(max_length=50, default=DEFAULT)
@@ -190,7 +194,7 @@ class Car(CarInfo):
 
 
     class Meta:
-        db_table = 'cars'
+        db_table = "cars"
 
     def __str__(self):
         return f"Госномер {self.license_number}{self.get_dictionary()}" + f" VIN {self.vin_number}"
@@ -274,12 +278,12 @@ class RegistrationHistory(CarInfo):
     period: Период до изменения.
     description: Описание изменения.
     """
-    car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name='reg_history')
+    car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name="reg_history")
     period = models.CharField(max_length=40)
     description = models.TextField()
 
     class Meta:
-        db_table = 'registrations_histories'
+        db_table = "registrations_histories"
 
     def __str__(self):
         return f"Регистрация {self.car.id} {self.period}\n{self.description}"
@@ -304,11 +308,11 @@ class RegistrationHistory(CarInfo):
 class VehicleLimits(CarInfo):
     """Ограничения у автомобиля"""
 
-    car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name='limits')
+    car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name="limits")
     description = models.TextField()
 
     class Meta:
-        db_table = 'vehicles_limits'
+        db_table = "vehicles_limits"
 
     def __str__(self):
         return f"Ограничения автомобиля {self.car.id}: {self.description}"
@@ -338,13 +342,13 @@ class Inspection(CarInfo):
     mileage: Показания одометра.
     """
 
-    car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name='inspetions')
+    car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name="inspetions")
     dc_number = models.CharField(max_length=15)
     dc_validity_date = models.CharField(max_length=40)
     mileage: str = models.IntegerField()
 
     class Meta:
-        db_table = 'inspections'
+        db_table = "inspections"
 
     def __str__(self):
         return f"Пробег {self.mileage}"
@@ -372,11 +376,11 @@ class Accident(CarInfo):
     img_path: Путь к фотографии.
     """
 
-    car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name='accidents')
+    car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name="accidents")
     img_path = models.FilePathField()
 
     class Meta:
-        db_table = 'accidents'
+        db_table = "accidents"
 
     def __str__(self):
         return f"ДТП с автомобилем {self.car.id}"
@@ -398,17 +402,17 @@ class Accident(CarInfo):
         super().load_from_json(dictionary, translate)
 
 
-class Fines(CarInfo):
+class Fine(CarInfo):
     """Штрафы
 
     description: Описание.
     """
 
-    car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name='fines')
+    car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name="fines")
     description = models.TextField()
 
     class Meta:
-        db_table = 'fines'
+        db_table = "fines"
 
     def __str__(self):
         return f"Штрафы {self.description}"
@@ -435,7 +439,7 @@ class UserCar(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
 
     class Meta:
-        db_table = 'UsersCars'
+        db_table = "UsersCars"
 
     def __str__(self):
-        return f'User {self.user.id} - Car {self.car.id}'
+        return f"User {self.user.id} - Car {self.car.id}"
