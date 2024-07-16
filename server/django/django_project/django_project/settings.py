@@ -118,7 +118,7 @@ class MyDebugFormatter(logging.Formatter):
 
 def get_handlers(log_level: int, console: int, filemode: str) -> [logging.Handler]:
     """Получение обработчиков для вывода сообщений"""
-    fpath = os.path.join(BASE_DIR, f"data/log/{dt.date.today().strftime('%d-%m-%Y')}.log")
+    fpath = os.path.join(BASE_DIR, f"logs/django {dt.date.today().strftime('%d-%m-%Y')}.log")
     os.makedirs(os.path.dirname(fpath), exist_ok=True)
     if not os.path.isfile(fpath):
         open(fpath, "w+").close()
@@ -158,7 +158,7 @@ def log_settings(file_log_level: int = logging.INFO, console_log_level: int = lo
             'file': {
                 'level': file_log_level,
                 'class': 'logging.FileHandler',
-                'filename': fpath,
+                'filename': os.path.join(BASE_DIR, f"logs/django {dt.date.today().strftime('%d-%m-%Y')}.log"),
                 'mode': filemode,
                 'formatter': 'standard',
             },
@@ -175,7 +175,6 @@ def log_settings(file_log_level: int = logging.INFO, console_log_level: int = lo
     }
 
 
-# Добавьте логгирование к настройкам
 LOGGING = log_settings()
 
 # Password validation
