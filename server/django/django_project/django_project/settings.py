@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 from os import environ  # Сокрытие настроек в env папке
+import logging
+import datetime as dt
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -85,6 +87,96 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+class MyDebugFormatter(logging.Formatter):
+    """"""
+
+    COLOR_CODES = {
+        'DEBUG': '\033[92m',  # Зелённый
+        'INFO': '\033[94m',  # Синий
+        'WARNING': '\033[93m',  # Жёлтый
+        'ERROR': '\033[91m',  # Красный
+        'CRITICAL': '\033[95m'  # Фиолетовый
+    }
+    RESET_CODE = '\033[0m'  # Белый
+
+    def __init__(self, max_length, *args, **kwargs):
+        self.max_length = max_length
+        super().__init__(*args, **kwargs)
+
+    def format(self, record):
+        log_message = super().format(record)
+        if record.levelname in self.COLOR_CODES:
+            if record.levelname == 'DEBUG':
+                return f"{self.COLOR_CODES[record.levelname]}{log_message[:self.max_length]}{self.RESET_CODE}"
+            else:
+                return f"{self.COLOR_CODES[record.levelname]}{log_message}{self.RESET_CODE}"
+        else:
+            return log_message
+
+
+def get_handlers(log_level: int, console: int, filemode: str) -> [logging.Handler]:
+    """Получение обработчиков для вывода сообщений"""
+    fpath = os.path.join(BASE_DIR, f"data/log/{dt.date.today().strftime('%d-%m-%Y')}.log")
+    os.makedirs(os.path.dirname(fpath), exist_ok=True)
+    if not os.path.isfile(fpath):
+        open(fpath, "w+").close()
+    # Настройка лога для файла
+    file_handler = logging.FileHandler(fpath, mode=filemode)
+    file_handler.setLevel(log_level)
+    # Настройка лога консоли
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(console)
+    formatter = logging.Formatter("[%(asctime)s] %(levelname)s: (%(filename)s %(funcName)s %(lineno)d) %(message)s.",
+                                  datefmt="%H:%M:%S")
+    formatter = MyDebugFormatter(200, formatter._fmt)
+    console_handler.setFormatter(formatter)
+    return [file_handler, console_handler]
+
+
+def log_settings(file_log_level: int = logging.INFO, console_log_level: int = logging.DEBUG,
+                 filemode: str = 'a') -> dict:
+    """Настройки логирования."""
+    handlers = get_handlers(file_log_level, console_log_level, filemode)
+    return {
+        'version': 1,
+        'disable_existing_loggers': False,
+        'formatters': {
+            'standard': {
+                'format': "[%(asctime)s] %(levelname)s: (%(filename)s %(funcName)s %(lineno)d) %(message)s.",
+                'datefmt': "%H:%M:%S",
+            },
+            'colored': {
+                '()': MyDebugFormatter,
+                'max_length': 200,
+                'format': "[%(asctime)s] %(levelname)s: (%(filename)s %(funcName)s %(lineno)d) %(message)s.",
+                'datefmt': "%H:%M:%S",
+            },
+        },
+        'handlers': {
+            'file': {
+                'level': file_log_level,
+                'class': 'logging.FileHandler',
+                'filename': fpath,
+                'mode': filemode,
+                'formatter': 'standard',
+            },
+            'console': {
+                'level': console_log_level,
+                'class': 'logging.StreamHandler',
+                'formatter': 'colored',
+            },
+        },
+        'root': {
+            'level': 'DEBUG',
+            'handlers': ['file', 'console'],
+        },
+    }
+
+
+# Добавьте логгирование к настройкам
+LOGGING = log_settings()
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
