@@ -4,6 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 from .serializers import *
 import logging
+from pprint import pprint
 
 # Create your views here.
 
@@ -20,6 +21,7 @@ def cars_list(request):
         logging.debug("(GET) Loaded cars list")
         data = Car.objects.all()
         serializer = CarSerializer(data, context={'request': request}, many=True)
+        pprint(serializer.data[0])
         return Response(serializer.data)
     elif request.method == 'POST':
         logging.debug("(POST) Get updated cars")
