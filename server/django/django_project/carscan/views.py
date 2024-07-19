@@ -8,7 +8,7 @@ from .serializers import *
 import logging
 import json
 from typing import Dict
-
+from pprint import pprint
 
 # Глобальная переменная для хранения результата (не рекомендуется для production)
 results = {}
@@ -27,6 +27,7 @@ def cars_list(request):
     if request.method == 'GET':
         data = Car.objects.all()
         serializer = CarSerializer(data, context={'request': request}, many=True)
+        pprint(serializer.data[0])
         return Response(serializer.data)
     elif request.method == 'POST':
         serializer = CarSerializer(data=request.data)
