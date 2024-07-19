@@ -1,0 +1,47 @@
+.footer{
+    padding: 20px;
+    background-color: #535353;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer h2{
+    color: white;
+}
+
+.car_container{
+    display: flex;
+}
+
+.car_container img{
+    width: 120px;
+    height: auto;
+}
+
+.icons{
+    display: flex;
+    gap: 20px;
+}
+
+.icons img{
+    width: 20px;
+    height: 20px;
+}
+
+.icons a{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 60%;
+}
+
+@media (max-width: 1023px) {
+    .footer{
+        flex-direction: column;
+        gap: 20px;
+    }
+}

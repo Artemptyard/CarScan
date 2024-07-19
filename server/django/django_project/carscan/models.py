@@ -342,7 +342,7 @@ class Inspection(CarInfo):
     mileage: Показания одометра.
     """
 
-    car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name="inspetions")
+    car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name="inspections")
     dc_number = models.CharField(max_length=15)
     dc_validity_date = models.CharField(max_length=40)
     mileage: str = models.IntegerField()
@@ -435,8 +435,8 @@ class Fine(CarInfo):
 
 
 class UserCar(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    car = models.ForeignKey(Car, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_info")
+    car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name="car_info")
 
     class Meta:
         db_table = "UsersCars"
