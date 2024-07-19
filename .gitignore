@@ -5,3 +5,4 @@
 .idea
 /server/telegram/.idea/
 /server/django/.idea/
+/server/django/django_project/django_project/__pycache__/
