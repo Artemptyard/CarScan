@@ -1,0 +1,209 @@
+[12:25:20] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[12:26:48] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\django_project\urls.py changed, reloading..
+[12:26:49] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[12:27:02] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\django_project\urls.py changed, reloading..
+[12:27:03] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[12:27:12] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\django_project\urls.py changed, reloading..
+[12:27:12] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[12:27:36] WARNING: (log.py log_response 230) Not Found: /.
+[12:27:36] WARNING: (log.py log_response 230) Not Found: /favicon.ico.
+[12:27:57] ERROR: (log.py log_response 230) Internal Server Error: /api/cars/.
+Traceback (most recent call last):
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\views.py", line 16, in cars_list
+    return Response(serializer.data)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 795, in data
+    ret = super().data
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 714, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 523, in to_representation
+    for field in fields:
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 384, in _readable_fields
+    for field in self.fields.values():
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 372, in fields
+    for key, value in self.get_fields().items():
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 1113, in get_fields
+    fields[field_name] = field_class(**field_kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\fields.py", line 1498, in __init__
+    allow_folders=allow_folders, required=required
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\forms\fields.py", line 1129, in __init__
+    for f in os.scandir(self.path):
+FileNotFoundError: [WinError 3] Системе не удается найти указанный путь: ''
+[12:54:48] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\views.py changed, reloading..
+[12:54:51] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[14:30:48] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\serializers.py changed, reloading..
+[14:30:49] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[14:33:04] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\views.py changed, reloading..
+[14:33:05] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[14:36:50] ERROR: (log.py log_response 230) Internal Server Error: /api/cars/.
+Traceback (most recent call last):
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\views.py", line 16, in cars_list
+    print(serializer.data)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 795, in data
+    ret = super().data
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 714, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 523, in to_representation
+    for field in fields:
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 384, in _readable_fields
+    for field in self.fields.values():
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 372, in fields
+    for key, value in self.get_fields().items():
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 1079, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 1180, in get_field_names
+    serializer_class=self.__class__.__name__
+AssertionError: The field 'user_car' was declared on serializer CarSerializer, but has not been included in the 'fields' option.
+[14:37:25] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\serializers.py changed, reloading..
+[14:37:26] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[14:37:33] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\serializers.py changed, reloading..
+[14:37:34] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[14:37:38] ERROR: (log.py log_response 230) Internal Server Error: /api/cars/.
+Traceback (most recent call last):
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\views.py", line 16, in cars_list
+    print(serializer.data)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 795, in data
+    ret = super().data
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 714, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 523, in to_representation
+    for field in fields:
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 384, in _readable_fields
+    for field in self.fields.values():
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\utils\functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 372, in fields
+    for key, value in self.get_fields().items():
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 1113, in get_fields
+    fields[field_name] = field_class(**field_kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\fields.py", line 1498, in __init__
+    allow_folders=allow_folders, required=required
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\forms\fields.py", line 1129, in __init__
+    for f in os.scandir(self.path):
+FileNotFoundError: [WinError 3] Системе не удается найти указанный путь: ''
+[14:40:46] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\serializers.py changed, reloading..
+[14:40:46] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[14:44:40] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\views.py changed, reloading..
+[14:44:40] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[14:49:20] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[14:51:42] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[14:51:42] WARNING: (log.py log_response 230) Not Found: /.
+[14:51:49] WARNING: (log.py log_response 230) Not Found: /.
+[14:52:00] WARNING: (log.py log_response 230) Not Found: /.
+[14:52:41] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\django_project\urls.py changed, reloading..
+[14:52:42] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[14:55:54] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\admin.py changed, reloading..
+[14:55:55] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[16:17:06] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[16:17:15] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[16:19:56] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\django_project\urls.py changed, reloading..
+[16:19:57] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[16:20:01] WARNING: (log.py log_response 230) Method Not Allowed: /api/cars/1.
+[16:20:38] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\views.py changed, reloading..
+[16:20:39] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[16:21:24] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\views.py changed, reloading..
+[16:21:25] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[16:21:50] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\views.py changed, reloading..
+[16:21:51] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[16:21:54] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\views.py changed, reloading..
+[16:21:54] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[16:21:59] ERROR: (log.py log_response 230) Internal Server Error: /api/cars/1.
+Traceback (most recent call last):
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\views.py", line 40, in cars_detail
+    return Response(serializer.data)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 795, in data
+    ret = super().data
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+TypeError: 'Car' object is not iterable
+[16:23:27] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\views.py changed, reloading..
+[16:23:28] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.

@@ -1,0 +1,75 @@
+[21:07:43] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[21:07:45] WARNING: (log.py log_response 230) Not Found: /favicon.ico.
+[21:07:50] ERROR: (log.py log_response 230) Internal Server Error: /api/cars/3.
+Traceback (most recent call last):
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\views.py", line 35, in cars_detail
+    car = Car.objects.get(pk=pk)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\db\models\query.py", line 437, in get
+    self.model._meta.object_name
+carscan.models.Car.DoesNotExist: Car matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\views.py", line 36, in cars_detail
+    except Student.DoesNotExist:
+NameError: name 'Student' is not defined
+[21:08:14] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\views.py changed, reloading..
+[21:08:15] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[21:08:16] ERROR: (log.py log_response 230) Internal Server Error: /api/cars/3.
+Traceback (most recent call last):
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\views.py", line 35, in cars_detail
+    car = Car.objects.get(pk=pk)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\db\models\query.py", line 437, in get
+    self.model._meta.object_name
+carscan.models.Car.DoesNotExist: Car matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\views.py", line 36, in cars_detail
+    except car.DoesNotExist:
+UnboundLocalError: local variable 'car' referenced before assignment
+[21:08:34] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\views.py changed, reloading..
+[21:08:35] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[21:08:36] WARNING: (log.py log_response 230) Not Found: /api/cars/3.
