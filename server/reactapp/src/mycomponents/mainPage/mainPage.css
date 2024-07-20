@@ -1,0 +1,112 @@
+.partialVerification{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin-top: auto;
+}
+.content_main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 20px;
+    width: 60%;
+    padding: 20px;
+}
+.input_main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+    gap: 20px;
+}
+
+
+.input_main div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.input_main input{
+    height: 40px;
+    width: 100%;
+}
+
+.input_main button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 35%;
+    background-color: black;
+    color: white;
+    padding: 10px  25px 10px 25px;
+    cursor: pointer;
+    border: none;
+}
+
+.input_main button:hover{
+    background-color: #535353;
+}
+
+.advertisement_main{
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    width: 15%;
+}
+
+.subscription{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.subscription div{
+    align-self: flex-start;
+    width: 50vh;
+    padding: 10px;
+    gap: 20px;
+    border-radius: 5px;
+    border: 1px solid #535353;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subscription div p{
+    color: #535353;
+}
+
+.subscription div button{
+    background-color: black;
+    height: 30px;
+    width: 70%;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 40px;
+}
+
+.subscription div button:hover{
+    border: 1px solid #535353;
+    background-color: #535353;
+}
+
+@media (max-width: 1500px) {
+    .subscription{
+        width: 60%;
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .subscription div{
+        width: 100%;
+    }
+}

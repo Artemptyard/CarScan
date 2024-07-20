@@ -20,9 +20,10 @@
 .navigation{
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
-.navigation a{
+.link{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,13 +34,74 @@
     color: white;
 }
 
-.navigation a:hover{
+.link:hover{
     transition: 1s;
     background-color: #717171;
 }
 
+#nav-icon {
+    display: flex;
+    flex-direction: column;
+    width: 30px;
+    height: 100%;
+    gap: 5px;
+    position: relative;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+#nav-icon span {
+    display: block;
+    height: 4px;
+    width: 100%;
+    background: white;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+#nav-icon span:nth-child(1) {
+    transform-origin: left center;
+}
+#nav-icon span:nth-child(2) {
+    transform-origin: left center;
+}
+#nav-icon span:nth-child(3) {
+    transform-origin: left center;
+}
+#nav-icon.open span:nth-child(1) {
+    transform: rotate(38deg);
+}
+#nav-icon.open span:nth-child(2) {
+    opacity: 0;
+}
+#nav-icon.open span:nth-child(3) {
+    transform: rotate(-38deg);
+}
+
+.menu-container{
+    margin-top: -10px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.menu-container.show{
+    max-height: 500px;
+    opacity: 1;
+}
+
 @media (max-width: 1023px) {
-    .navigation{
+    .link{
         display: none;
     }
 }
+
+@media (min-width: 1023px) {
+    #nav-icon{
+        display: none;
+    }
+}
+
