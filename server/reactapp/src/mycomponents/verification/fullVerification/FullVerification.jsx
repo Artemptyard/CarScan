@@ -19,7 +19,7 @@ function FullVerification() {
         getStudents();
     };
     console.log(students);
-    console.log(students[0].vin_number);
+    // console.log(students[0].vin_number);
     return (
         <div className="fullVerification">
             <div className="content">

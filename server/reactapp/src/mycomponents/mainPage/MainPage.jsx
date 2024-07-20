@@ -1,28 +1,11 @@
 import React from 'react';
 import "./mainPage.css";
 import axios from "axios";
-import {useEffect, useState} from "react";
-import {API_URL} from "../../index";
+import { useEffect, useState } from "react";
+import { API_URL } from "../../index";
+import { API_URL_PARSE } from "../../index";
 
 function MainPage() {
-
-    const [students, setStudents] = useState([]);
-
-    useEffect(() => {
-        getStudents();
-    }, []);
-
-    const getStudents = () => {
-        axios.get(API_URL)
-            .then(response => {
-                setStudents(response.data);
-            })
-            .catch(error => {
-                console.error('There was an error!', error);
-            });
-    };
-
-    console.log(students[0]);
 
     return (
         <div className="partialVerification">
@@ -35,18 +18,24 @@ function MainPage() {
                 </h3>
                 <div className='advertisement_main'>Реклама</div>
                 <h2>Узнайте VIN по Госномеру</h2>
-                <div className="input_main">
-                    <div>
-                        <p>Номер</p>
-                        <input type="text" />   
+                {/* {!taskId && ( */}
+                    <div className="input_main">
+                        <div>
+                            <p>Номер</p>
+                            <input type="text" />
+                        </div>
+                        <div>
+                            <p>Регион</p>
+                            <input type="text" />
+                        </div>
+                        {/* <button onClick={sendData} disabled={loading}>
+                            {loading ? 'В процессе...' : 'Узнать VIN'}
+                        </button> */}
+                        <button>Узнать VIN</button>
                     </div>
-                    <div>
-                        <p>Регион</p>
-                        <input type="text" />   
-                    </div>
-                    <button>Узнать VIN</button>
-                </div>
-                <h3>Введите госномер или VIN номер нужного вам автомобиля. 
+                {/* )} */}
+                {/* <p>{response}</p> */}
+                <h3>Введите госномер или VIN номер нужного вам автомобиля.
                     Проверка займёт около 5 минут и вы получите pdf отчёт!</h3>
                 <div className='advertisement_main'>Реклама</div>
                 <h2>Зарегистрируйтесь!</h2>
@@ -79,7 +68,7 @@ function MainPage() {
                         <h1>199₽/мес.</h1>
                         <p>Сохранение проверенных машин в течении месяца</p>
                         <p>
-                            Одновременная проверка 5 машин с 
+                            Одновременная проверка 5 машин с
                             максимальным приоритетом
                         </p>
                         <p>Доступ к телеграм боту для проверки автомобилей</p>
@@ -89,8 +78,7 @@ function MainPage() {
                 </div>
             </div>
         </div>
-            
     );
-  }
-  
+}
+
 export default MainPage;

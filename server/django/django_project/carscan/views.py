@@ -9,6 +9,8 @@ import logging
 import json
 from typing import Dict
 from pprint import pprint
+import threading
+import time
 
 # Глобальная переменная для хранения результата (не рекомендуется для production)
 results = {}
@@ -21,13 +23,13 @@ def main_page(request):
     logging.debug("Main page opened")
     return Response()
 
+
 @api_view(['GET', 'POST'])
 def cars_list(request):
     """"""
     if request.method == 'GET':
         data = Car.objects.all()
         serializer = CarSerializer(data, context={'request': request}, many=True)
-        pprint(serializer.data[0])
         return Response(serializer.data)
     elif request.method == 'POST':
         serializer = CarSerializer(data=request.data)
@@ -35,6 +37,7 @@ def cars_list(request):
             serializer.save()
             return Response(status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(['GET', 'DELETE'])
 def cars_detail(request, pk):
@@ -51,9 +54,10 @@ def cars_detail(request, pk):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-def parsing(param: Dict[str, str], seconds: int = 10):
+def parsing(param: Dict[str, str], task_id: int, seconds: int = 10):
     """"""
     # Имитация длительного процесса
+    logging.debug("Процесс запущен.")
     time.sleep(seconds)
     result = f'Процесс завершён. Получен параметр param1 со значением: {param}'
     results[task_id] = result
@@ -66,11 +70,11 @@ def parse(request):
     if request.method == 'POST':
         data = json.loads(request.body)
         param = data.get('param1', None)
-        if param1:
+        if param:
             # Генерация уникального идентификатора задачи
             task_id = str(time.time())
             # Запуск длительного процесса в отдельном потоке
-            threading.Thread(target=long_running_task, args=(param1, task_id)).start()
+            threading.Thread(target=parsing, args=(param, task_id)).start()
             response_data = {'message': 'Процесс запущен', 'task_id': task_id}
         else:
             response_data = {'message': 'Параметр param1 не найден в запросе'}
@@ -80,10 +84,11 @@ def parse(request):
 
 
 # @csrf_exempt
-@api_view(['GET'])
+@api_view(['POST'])
 def get_result(request):
-    if request.method == 'GET':
-        task_id = request.GET.get('task_id', None)
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        task_id = data.get('task_id', None)
         if task_id and task_id in results:
             response_data = {'result': results.pop(task_id)}
         else:

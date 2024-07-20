@@ -1,0 +1,23 @@
+# version: '3.8'
+# Поднимаем два сервиса, django И node
+services:
+  django:
+    #говорим что build будет из dockerfile который располагается ./django/django_project/
+    build: ./django/django_project/
+    # имя контейнера
+    container_name: djangoapp
+    # перезапускать контейнер при завершении выполнения работы или при аварийном завершении
+    restart: always
+    # проброс портов внутрь контейнера, 8000 порт на хост машине будет проброшен внутрь контейнера на такой же 8000 порт
+    ports:
+      - 8000:8000
+    # команда при старте контейнера
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+    # Для статики мы подключаем два volume (чтобы при перезапуске наши данные не пропадали)), создадим их ниже.
+    volumes:
+      - django_static_volume:/usr/src/app/static
+      - django_media_volume:/usr/src/app/media
+#    # подключаем к сети myNetwork (в целом не обязательно, но до кучи чтоб было)
+#    networks:
+#      - myNetwork
