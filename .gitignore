@@ -1,7 +1,5 @@
 /.vscode/
-/server/reactapp/node_modules/
+/server/react/node_modules/
 /server/django/env/
 /server/telegram/env/
 .idea
-/server/telegram/.idea/
-/server/django/.idea/
