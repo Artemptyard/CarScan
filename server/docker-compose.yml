@@ -1,5 +1,5 @@
 # version: '3.8'
-# Поднимаем два сервиса, django И node
+# Поднимаем django, node, rabbitMQ
 services:
   django:
     #говорим что build будет из dockerfile который располагается ./django/django_project/
@@ -16,8 +16,61 @@ services:
       sh -c "python manage.py runserver 0.0.0.0:8000"
     # Для статики мы подключаем два volume (чтобы при перезапуске наши данные не пропадали)), создадим их ниже.
     volumes:
+      - ./django/django_project:/usr/src/app/
       - django_static_volume:/usr/src/app/static
       - django_media_volume:/usr/src/app/media
-#    # подключаем к сети myNetwork (в целом не обязательно, но до кучи чтоб было)
-#    networks:
-#      - myNetwork
+    # подключаем к сети myNetwork (в целом не обязательно, но до кучи чтоб было)
+    networks:
+      - myNetwork
+
+  node:
+    # Аналогично, build из ./reactapp/dockerfile
+    build: ./reactapp
+    # имя контейнера
+    container_name: reactapp
+    # рестарт
+    restart: always
+    # порты
+    ports:
+      - 3000:3000
+    volumes:
+      - ./reactapp/public/:/usr/src/app/public/
+      - ./reactapp/src/:/usr/src/app/src/
+    # команда при запуске
+    command: npm start
+    # Зависимость. нет смысла ноде, если некому отдать ей данные. поэтому сначала стартуем сервис django, а за ней node
+    depends_on:
+      - django
+    # Сеть та же, все контейнеры должны крутиться в однйо сети чтобы видеть друг друга.
+    networks:
+      - myNetwork
+
+  rmq:
+      # на этот раз мы не билдим контейнер а используем полностью готовый из репозитория
+      image: rabbitmq:3.13-management
+      restart: always
+      container_name: rmq
+      networks:
+        - myNetwork
+      # Переменные окружения для настройки. 
+      environment:
+        - RABBITMQ_DEFAULT_USER=admin
+        - RABBITMQ_DEFAULT_PASS=admin
+      # volume для хранения данных rmq, можно и без него, но тогда при перезапуске каждый раз будет создаваться новый и они будут потихоньку накапливаться
+      volumes:
+        - rabbitmq_data_volume:/var/lib/rabbitmq/
+      # проброс портов, 15672 для менеджмента, 5671-5672 для работы
+      ports:
+        - 1234:15672
+        - 5671-5672:5671-5672
+
+# создаём два volume для статики
+volumes:
+  django_static_volume:
+  django_media_volume:
+  rabbitmq_data_volume:
+
+# создаём сеть.
+networks:
+  myNetwork:
+    driver: bridge

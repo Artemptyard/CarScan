@@ -1,0 +1,86 @@
+[11:56:38] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[11:56:49] WARNING: (log.py log_response 230) Not Found: /favicon.ico.
+[11:57:09] ERROR: (log.py log_response 230) Internal Server Error: /admin/login/.
+Traceback (most recent call last):
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: users.is_active
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\contrib\admin\sites.py", line 414, in login
+    return LoginView.as_view(**defaults)(request)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\views\decorators\debug.py", line 89, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\contrib\auth\views.py", line 63, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\views\generic\edit.py", line 141, in post
+    if form.is_valid():
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\forms\forms.py", line 175, in is_valid
+    return self.is_bound and not self.errors
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\forms\forms.py", line 170, in errors
+    self.full_clean()
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\forms\forms.py", line 373, in full_clean
+    self._clean_form()
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\forms\forms.py", line 400, in _clean_form
+    cleaned_data = self.clean()
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\contrib\auth\forms.py", line 210, in clean
+    self.user_cache = authenticate(self.request, username=username, password=password)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\views\decorators\debug.py", line 42, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\contrib\auth\__init__.py", line 76, in authenticate
+    user = backend.authenticate(request, **credentials)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\contrib\auth\backends.py", line 42, in authenticate
+    user = UserModel._default_manager.get_by_natural_key(username)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\contrib\auth\base_user.py", line 45, in get_by_natural_key
+    return self.get(**{self.model.USERNAME_FIELD: username})
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\db\models\query.py", line 431, in get
+    num = len(clone)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\db\models\query.py", line 262, in __len__
+    self._fetch_all()
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\db\models\query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\db\models\query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\db\models\sql\compiler.py", line 1175, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: users.is_active

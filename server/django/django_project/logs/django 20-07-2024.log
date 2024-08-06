@@ -1,0 +1,20 @@
+[16:34:52] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[16:34:57] WARNING: (log.py log_response 230) Not Found: /favicon.ico.
+[16:42:13] WARNING: (log.py log_response 230) Not Found: /favicon.ico.
+[16:45:46] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\views.py changed, reloading..
+[16:45:48] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[16:46:19] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\django_project\urls.py changed, reloading..
+[16:46:20] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[16:46:54] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\django_project\urls.py changed, reloading..
+[16:46:55] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[17:17:03] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\views.py changed, reloading..
+[17:17:04] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[17:24:40] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\views.py changed, reloading..
+[17:24:41] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[17:31:28] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\views.py changed, reloading..
+[17:31:29] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[17:32:41] INFO: (autoreload.py trigger_reload 251) C:\Users\drako\OneDrive\Рабочий стол\Projects\Andrew\CarScanProject\server\django\django_project\carscan\views.py changed, reloading..
+[17:32:42] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
+[17:33:20] WARNING: (log.py log_response 230) Not Found: /api/parse//result/.
+[17:34:17] WARNING: (log.py log_response 230) Not Found: /api/parse//result/.
+[18:31:41] INFO: (autoreload.py run_with_reloader 637) Watching for file changes with StatReloader.
