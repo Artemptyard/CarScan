@@ -17,7 +17,7 @@ from data.appdata.functions import stop_program, get_image_bytes
 class MyCaptchaSolver:
     """Решение капчей всех типов"""
     driver: webdriver.Firefox
-    key: str = "fac280caafe41e032323725ff4f0005c"
+    key: str = "***"
     try_count: int = 10
     sleep: int = 3
 
