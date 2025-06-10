@@ -17,7 +17,7 @@ from data.appdata.functions import save_json, load_json
 
 class ScanCarBot:
     """Телеграмм бот для проверки автомобилей"""
-    _token: str = "7162134726:AAHtDCF86bITtcAubMJM_4mSV87v5_GFdeM"
+    _token: str = "***"
 
     def __init__(self, parser_options: ParserOptions = ParserOptions(), thread_count: int = 3):
         self.bot = telebot.TeleBot(self._token)
